@@ -28,7 +28,7 @@ class CoursesController: UITableViewController {
                 return
             }
             
-            self.courseViewModels = courses?.map({return CourseViewModel(course: $0)}) ?? []
+            self.courseViewModels = courses?.map({ return CourseViewModel(course: $0 )}) ?? []
             self.tableView.reloadData()
         }
     }

@@ -12,7 +12,6 @@ import UIKit
 struct CourseViewModel {
     
     let name: String
-    
     let detailTextString: String
     let accessoryType: UITableViewCellAccessoryType
     
@@ -21,12 +20,11 @@ struct CourseViewModel {
         self.name = course.name
         
         if course.number_of_lessons > 35 {
-            detailTextString = "Lessons 30+ Check it Out!"
+            detailTextString = "stuff"
             accessoryType = .detailDisclosureButton
         } else {
-            detailTextString = "Lessons: \(course.number_of_lessons)"
+            detailTextString = "other stuff"
             accessoryType = .none
         }
     }
-    
 }

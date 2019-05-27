@@ -11,9 +11,9 @@ import UIKit
 class CourseCell: UITableViewCell {
     
     var courseViewModel: CourseViewModel! {
-        didSet {
+        didSet{
             textLabel?.text = courseViewModel.name
-            detailTextLabel?.text = courseViewModel.detailTextString
+            detailTextLabel?.text = courseViewModel .detailTextString
             accessoryType = courseViewModel.accessoryType
         }
     }
