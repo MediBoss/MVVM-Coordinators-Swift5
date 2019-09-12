@@ -10,25 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var personViewModel: PersonViewModel!
+    
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-
-        let person = Person(firstName: "Adriana", lastName: "Gonzalez", birthDate: NSDate(), greeting: "Hello")
         
+        let person = Person(firstName: "Adriana", lastName: "Gonzalez", birthDate: NSDate(), greeting: "Hello")
         let infoView = InfoView(frame: CGRect(x: 0, y: 0, width: 400, height: 200))
         infoView.center = self.view.center
         self.view.addSubview(infoView)
+
+        personViewModel = PersonViewModel(withPerson: person)
+        personViewModel.formatDate()
         
-        if (person.greeting.count > 0) {
-            infoView.nameLabel.text = "\(person.greeting) \(person.firstName) \(person.lastName)"
-        } else {
-            infoView.nameLabel.text = "\(person.firstName) \(person.lastName)"
-        }
-        
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "EEEE MMMM d, yyyy"
-        infoView.birthDateLabel.text = dateformatter.string(from: person.birthDate as Date)
+        infoView.nameLabel.text = personViewModel.getMessage()
+        infoView.birthDateLabel.text = personViewModel.formatDate()
+
         
     }
 }
