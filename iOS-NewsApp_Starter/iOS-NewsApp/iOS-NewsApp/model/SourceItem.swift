@@ -8,7 +8,12 @@
 
 import Foundation
 
+struct Response: Codable {
+    let sources: [SourceItem]?
+}
+
 class SourceItem: NSObject, Codable {
+    
     let id: String
     let name: String
     let overview: String
